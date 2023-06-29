@@ -4,34 +4,11 @@ window.addEventListener("load", function() {
    let form = document.querySelector('form')
    form.addEventListener('submit', function(evenet) {
     event.preventuDefault();
-    let pilotName = pilotNameInput.value;
-    let copilotName = copilotNameInput.value;
-    let fuelLevel = fuelLevelInput.value;
-    let cargoMass = cargoMassInput.value;
-
-    if(
-        pilotName === '' ||
-        copilotName === '' ||
-        fuelLevel === '' ||
-        cargoMass === '' ||
-    ) {
-        alert('All fields are required!');
-        return;
-    } if(
-        pilotName === '' ||
-        copilotName === '' ||
-        fuelLevel === '' ||
-        cargoMass === '' ||
-       ){
-        alert('All fields are required!');
-       } else if (
-        pilotName === !/^[A-Za-z]+$/ || copilotName !/^[A-Za-z]+$/) {
-            alert('Invalid input. Pilot and co-pilot must be valid names');
-            return;
-        } else if(isNan(fuelLevel) || isNan(cargoMass)){
-            alert('Invalid input! Fuel level and cargo mass should be numbers');
-        } 
-        return "Valid";   
+    let pilotName = document.querySelector("input[name='pilotName']").value;
+    let coPilotName = document.querySelector("input[name='copilotName']").value;
+    let fuelLevel = document.querySelector("input[name='fuelLevel']").value;
+    let cargoMass = document.querySelector("input[name='cargoMass']").value;
+    formSubmission(document, pilotName, coPilotName, fuelLevel, cargoMass);
    })
    
    
